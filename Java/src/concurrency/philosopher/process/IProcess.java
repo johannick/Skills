@@ -1,4 +1,4 @@
-package concurrency.philosopher.processor;
+package concurrency.philosopher.process;
 
 import concurrency.philosopher.APhilosopher;
 import org.jetbrains.annotations.NotNull;

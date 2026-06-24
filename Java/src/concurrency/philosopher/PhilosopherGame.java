@@ -38,6 +38,7 @@ public class PhilosopherGame implements  Runnable {
         }
     }
 
+
     @Override
     public void run()  {
 
@@ -47,14 +48,15 @@ public class PhilosopherGame implements  Runnable {
             lives.add(thread);
             thread.start();
         }
-        try {
-        for (Thread live : lives) {
 
+        for (Thread live : lives) {
+            try {
                 live.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     public void stop(){
@@ -66,16 +68,16 @@ public class PhilosopherGame implements  Runnable {
     public void display(){
 
         char separator = '|';
-        System.out.print(separator);
+        IO.print("Philosopher State " + separator);
         for (APhilosopher philosopher : philosophers) {
-            System.out.print(philosopher.getState() + separator);
+            IO.print(philosopher.getState() + separator);
         }
-        System.out.println();
-        System.out.print(separator);
+        IO.println();
+        IO.print("Fork Owner Number " + separator);
         for (Fork fork : forks) {
-            System.out.print(printableId(fork.getOwnerId(), 5) + separator);
+            IO.print(printableId(fork.getOwnerId(), 5) + separator);
         }
-        System.out.println();
+        IO.println();
     }
 
     private String printableId(int identifier, int padding){
@@ -85,15 +87,15 @@ public class PhilosopherGame implements  Runnable {
     public void report(){
 
         char separator = '|';
-        System.out.print(separator);
+        IO.print(separator);
         for (APhilosopher philosopher : philosophers) {
-            System.out.print(printableId(philosopher.getId(), 8) + separator);
+            IO.print(printableId(philosopher.getId(), 8) + separator);
         }
-        System.out.println();
-        System.out.print(separator);
+        IO.println();
+        IO.print(separator);
         for (APhilosopher philosopher : philosophers) {
-            System.out.print("EAT:" + printableId(philosopher.getEatCounter(), 4) + separator);
+            IO.print("EAT:" + printableId(philosopher.getEatCounter(), 4) + separator);
         }
-        System.out.println();
+        IO.println();
     }
 }

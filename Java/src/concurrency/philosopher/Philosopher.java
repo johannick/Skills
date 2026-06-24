@@ -1,6 +1,6 @@
 package concurrency.philosopher;
 
-import concurrency.philosopher.processor.*;
+import concurrency.philosopher.process.*;
 
 import java.util.ArrayList;
 
