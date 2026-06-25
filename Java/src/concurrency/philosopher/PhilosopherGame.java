@@ -68,12 +68,12 @@ public class PhilosopherGame implements  Runnable {
     public void display(){
 
         char separator = '|';
-        IO.print("Philosopher State " + separator);
+        IO.print(separator);
         for (APhilosopher philosopher : philosophers) {
             IO.print(philosopher.getState() + separator);
         }
         IO.println();
-        IO.print("Fork Owner Number " + separator);
+        IO.print(separator);
         for (Fork fork : forks) {
             IO.print(printableId(fork.getOwnerId(), 5) + separator);
         }

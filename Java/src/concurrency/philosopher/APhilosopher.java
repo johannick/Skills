@@ -2,7 +2,6 @@ package concurrency.philosopher;
 
 import java.lang.String;
 
-
 public abstract class APhilosopher {
     public abstract int getId();
     public abstract boolean hasFirstFork();
