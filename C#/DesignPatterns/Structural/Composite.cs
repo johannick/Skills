@@ -11,10 +11,7 @@ public abstract class AFileComponent
 
 public class File : AFileComponent
 {
-    public override IEnumerable<AFileComponent> GetChildrens()
-    {
-        return Array.Empty<AFileComponent>().AsEnumerable(); 
-    }
+    public override IEnumerable<AFileComponent> GetChildrens() => Array.Empty<AFileComponent>().AsEnumerable();
 }
 
 public class Directory : AFileComponent
